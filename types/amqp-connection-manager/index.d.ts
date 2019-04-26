@@ -160,11 +160,11 @@ export interface ChannelWrapper extends EventEmitter {
 	/**
 	 * @see amqplib
 	 * @param queue
-	 * @param content
+	 * @param content the content to send as a Buffer, or a JSON object if 'json: true' was specified in `createChannel` options
 	 * @param options
 	 * @param callback
 	 */
-    sendToQueue(queue: string, content: Buffer, options?: Options.Publish, callback?: (err: any, ok: Replies.Empty) => void): Promise<void>;
+    sendToQueue(queue: string, content: Buffer | any, options?: Options.Publish, callback?: (err: any, ok: Replies.Empty) => void): Promise<void>;
 
 	/**
 	 * @see amqplib
